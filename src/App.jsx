@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Guitar from './components/Guitar'
 import Header from './components/Header'
@@ -10,11 +10,14 @@ function App() {
   const [total, setTotal] = useState(0)
   const [cart, setCart] = useState([])
 
-  
-  setTimeout(()=> {
-    setAuth(false)
-  }, 3000);
-
+  useEffect(() => {
+    if(auth){
+      console.log('Autenticado')
+    } else {
+      console.log('Usuario No autenticado')
+    }
+    console.log("Componente Listo");
+  }, [auth]);
 
   return (
     <>
