@@ -22,14 +22,15 @@ function App() {
       setCart([...cart, item])
     }
     
-    
 
   }
 
 
   return (
     <>
-    <Header />
+    <Header
+      cart={cart}
+    />
 
 
     <main className="container-xl mt-5">
