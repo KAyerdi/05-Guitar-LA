@@ -1,23 +1,15 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import './App.css'
 import Guitar from './components/Guitar'
 import Header from './components/Header'
+import { db } from './data/db'
 
 function App() {
 
-  //aqui van los useState
-  const [auth, setAuth] = useState(true)
-  const [total, setTotal] = useState(0)
-  const [cart, setCart] = useState([])
+  const [data, setData] = useState(db)
 
-  useEffect(() => {
-    if(auth){
-      console.log('Autenticado')
-    } else {
-      console.log('Usuario No autenticado')
-    }
-    console.log("Componente Listo");
-  }, [auth]);
+  console.log(data)
+
 
   return (
     <>
@@ -27,16 +19,16 @@ function App() {
     <main className="container-xl mt-5">
         <h2 className="text-center">Nuestra Colección</h2>
 
+
         <div className="row mt-5">
-        <Guitar />
-        <Guitar />
-        <Guitar />
-        <Guitar />
-        <Guitar />
-        <Guitar />
-        <Guitar />
-        <Guitar />
-        <Guitar />
+          {data.map(() => (
+            <Guitar
+              price={100}
+              auth={true}
+            />
+          )
+          )}
+
         </div>
     </main>
 
