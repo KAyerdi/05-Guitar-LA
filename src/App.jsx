@@ -7,8 +7,8 @@ import { db } from './data/db'
 function App() {
 
   const [data, setData] = useState(db)
+  const [cart, setCart] = useState([])
 
-  console.log(data)
 
 
   return (
@@ -21,10 +21,11 @@ function App() {
 
 
         <div className="row mt-5">
-          {data.map(() => (
+          {data.map((guitar) => (
             <Guitar
-              price={100}
-              auth={true}
+              key={guitar.id}
+              guitar={guitar}
+              setCart={setCart}
             />
           )
           )}
